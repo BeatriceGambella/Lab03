@@ -21,12 +21,15 @@ def main():
         if scelta == "1":
             nuovo_responsabile = input("Inserisci il nuovo responsabile: ")
             deposito.responsabile = nuovo_responsabile
+            print("Il responsabile è stato aggiornato correttamente!")
 
         elif scelta == "2":
             while True:
                 try:
                     file_path = input("Inserisci il path del file da caricare: ").strip()
                     deposito.carica_file_strumenti(file_path)
+                    print(f"Sono stati inseriti i seguenti strumenti:\n" +
+                          "\n".join(str(strumento) for strumento in deposito.strumenti))
                     break
                 except Exception as e:
                     print(e)
