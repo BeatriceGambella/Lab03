@@ -26,7 +26,11 @@ class Strumento:
 
     #permette la stampa degli oggetti Strumento
     def __str__(self):
-        return f"{self.__codice_univoco}, {self.__tipo}, {self.__marca}, {self.__anno_acquisto}, {self.__valore_euro:.2f}"
+        if self.__disponibile:
+            disponibilita = "Disponibile nel deposito"
+        else:
+            disponibilita = "In prestito"
+        return f"{self.__codice_univoco}, {self.__tipo}, {self.__marca}, {self.__anno_acquisto}, {self.__valore_euro:.2f}, {disponibilita}"
 
     #permette la stampa degli oggetti anche quando sono contenuti in una lista e viene stampata quest'ultima
     def __repr__(self):
